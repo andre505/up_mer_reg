@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <br />
+    <h5>Please choose an account type to proceed</h5>
+    <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+    <br />
+    <br />
+    <br />
+
+
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Account Type
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item"  asp-area="Identity" asp-page="/Account/Register">Individual</a>
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Bizregister">Registered Business Name</a>
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Comregister">Registered Company</a>
+        </div>
+    </div>
+    <!--<select asp-for="Country" asp-items="Model.Countries"></select>-->
+</div>
+
+<script>
+$('.dropdown-menu').on( 'click', 'a', function() {
+    var text = $(this).html();
+    var htmlText = text + ' <span class="caret"></span>';
+    $(this).closest('.dropdown').find('.dropdown-toggle').html(htmlText);
+});
+</script>

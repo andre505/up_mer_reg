@@ -1,0 +1,23 @@
+﻿@page
+@model UploadLGAModel
+@{
+    ViewData["Title"] = "Upload LGA";
+}
+
+
+<h2>Upload LGA</h2>
+<hr />
+<div class="row">
+    <form method="post" asp-action="UploadLGA" enctype="multipart/form-data">
+
+
+
+        <input type="file" name="files" multiple />
+        <input type="submit" value="Upload" />
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

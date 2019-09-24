@@ -1,0 +1,610 @@
+﻿@page
+@model ComregisterModel
+@{
+    ViewData["Title"] = "Company Registration";
+}
+    <div class="alert alert-warning alert-dismissible" style="display:none">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>@Html.DisplayFor(model => model.MutantStatus)</strong>
+    </div>
+<h2>@ViewData["Title"]</h2>
+
+<div class="container py-5">
+    <div class="row rounded-sm">
+        <div class="col-md-10 mx-auto">
+            <span class=""></span>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+
+                <!--Row 1-->
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="PhoneNumber">Phone Number (Registered with PayAttitude)</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="BusinessName">Company Name</label>
+                        <input asp-for="BusinessName" class="form-control" id="inputfname" />
+                        <span asp-validation-for="BusinessName" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+
+                <!--row2-->
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="NatureofBusiness">Nature of Company</label>
+                        <input asp-for="NatureofBusiness" class="form-control" id="inputfname" />
+                        <span asp-validation-for="NatureofBusiness" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Address">Address</label>
+                        <input asp-for="Address" class="form-control" id="inputfname" />
+                        <span asp-validation-for="Address" class="text-danger"></span></br>
+                    </div>
+
+
+                </div>
+                <!--row 3-->
+                <div class="form-group row">
+
+                    <div class="col-md-3">
+                        <label asp-for="StateList">Company Location</label>
+                        <select asp-for="Officestateid" asp-items="@Model.StateList"> <option value="">Select State</option></select>
+                        <span asp-validation-for="Officestateid" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="LGAList">Company Location</label>
+                        <select asp-for="Officelgaid" asp-items="@Model.LGAList"><option value="">Select LGA</option></select>
+                        <span asp-validation-for="Officelgaid" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <label asp-for="BusinessEmail">Company Email</label>
+                        <input asp-for="BusinessEmail" class="form-control" id="inputfname" />
+                        <span asp-validation-for="BusinessEmail" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="BusinessPhoneNumber">Company Phone</label>
+                        <input asp-for="BusinessPhoneNumber" class="form-control" id="inputfname" />
+                        <span asp-validation-for="BusinessPhoneNumber" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <!--row 4-->
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <label asp-for="RCNumber">RC Number</label>
+                        <input asp-for="RCNumber" class="form-control" id="inputfname" />
+                        <span asp-validation-for="RCNumber" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Turnover">Turnover</label>
+                        <input asp-for="Turnover" class="form-control" id="inputfname" />
+                        <span asp-validation-for="Turnover" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <!--row 4-->
+                <div class="form-group row">
+
+                    <div class="col-md-6">
+                        <label asp-for="ProfitBeforeTax">Profit Before Tax</label>
+                        <input asp-for="ProfitBeforeTax" class="form-control" />
+                        <span asp-validation-for="ProfitBeforeTax" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="NoofBusinessYears">Number of Years in Business</label>
+                        <input asp-for="NoofBusinessYears" class="form-control" />
+                        <span asp-validation-for="NoofBusinessYears" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <!--row 5-->
+                <div class="col-md-8">
+
+                    <p><strong>Details of Company Shareholders</strong></p>
+
+                </div>
+                <!--row 6-->
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label asp-for="PropFullName">Full Name of Shareholder (Surname First)</label>
+                        <input asp-for="PropFullName" class="form-control" />
+                        <span asp-validation-for="PropFullName" class="text-danger"></span>
+                    </div>
+                </div>
+                <!--row 7-->
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label asp-for="PropAddress">Address of Shareholder</label>
+                        <input asp-for="PropAddress" class="form-control" />
+                        <span asp-validation-for="PropAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <!--row 8-->
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label asp-for="StateList">State</label><br />
+                        <select asp-for="Stateid" asp-items="@Model.StateList"> <option value="">Select State</option></select>
+                        <span asp-validation-for="Stateid" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="LGAList">LGA</label><br />
+                        <select asp-for="Lgaid" asp-items="@Model.LGAList"><option value="">Select LGA</option></select>
+                        <span asp-validation-for="Lgaid" class="text-danger"></span> <br />
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <label asp-for="GenderList">Gender</label><br />
+                        <select id="genDer" name="sex">
+                            <option value="">Select Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select><br />
+                        <span asp-validation-for="GenderList" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <label asp-for="PropPhone">Phone</label>
+                        <input asp-for="PropPhone" class="form-control" />
+                        <span asp-validation-for="PropPhone" class="text-danger"></span>
+                    </div>
+                    <div class="float-right">
+                        <button type="button" id="addaprop" class="btn btn-link" onclick="propAddToTable();">Add Proprietor</button>
+                    </div>
+                </div>
+
+                <!--row 9-->
+                <div class="form-group row">
+
+                    <div class="col-md-12">
+                        <p>Added Proprietors</p>
+                        <table style="width:auto;" id="tblprops" class="table" cellpadding="0">
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>State</th>
+                                <th>LGA</th>
+                                <th></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <hr />
+                <div class="col-md-8">
+
+                    <p><strong>Desired State of Operation</strong></p>
+
+                </div>
+                <!--row 10-->
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label asp-for="StateList">State (State of Operation)</label>
+                        <select asp-for="Desstateid" asp-items="@Model.StateList"> <option value="">Select State</option></select>
+                        <span asp-validation-for="Desstateid" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label asp-for="LGAList">LGA (LGAs (Maximum of 10)</label>
+                        <select asp-for="Deslgaid" asp-items="@Model.LGAList"><option value="">Select LGA</option></select><br />
+                        <span asp-validation-for="Deslgaid" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="addanlga" class="btn btn-link" onclick="productAddToTable();">Add LGA</button>
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-md-8">
+                        <p>Selected LGAs (Maximum of 10)</p>
+                        <table id="tbllgas" class="table table-sm table-striped" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <th>Name</th>
+                                <th></th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!--row 13-->
+                <!--new prop state and lga-->
+
+                <button id="run" type="submit" class="btn btn-primary px-4 float-right">Proceed</button>
+
+                <button id="runnn" type="submit" style="color:white; display:none" asp-page-handler="saveagent" class="btn btn-primary px-4 float-right">Beans</button>
+
+
+                <button style="color:white; display:none" type="button" id="modd" class="btn px-1" data-toggle="modal" data-target="#exampleModal">modal test</button>
+                <div class="col-md-3">
+                    <input asp-for="JSONLGAs" type="hidden" />
+                </div>
+
+                <div class="col-md-3">
+                    <input asp-for="JSONproprietors" type="hidden" />
+                </div>
+
+                <div class="col-md-3">
+                    <input asp-for="noofselectedlgas" type="hidden" />
+                </div>
+
+                <div class="col-md-3">
+                    <input asp-for="noofselectedprops" type="hidden" />
+                </div>
+
+                <div class="col-md-3">
+                    <textarea id="Transactionid" rows="1" style="display:none;">@Html.DisplayFor(model => model.Transactionid)</textarea>
+                    @*<input asp-for="Transactionid" value="@Html.DisplayFor(model => model.Transactionid)" type="hidden" />*@
+                </div>
+
+                <div class="col-md-3">
+                    <textarea id="desj" rows="1" style="display:none;">@Html.DisplayFor(model => model.desJSON)</textarea>
+                    @*<input asp-for="Transactionid" value="@Html.DisplayFor(model => model.Transactionid)" type="hidden" />*@
+                </div>
+
+                <div class="col-md-3">
+                    <textarea id="MutantStatus" rows="1" style="display:none;">@Html.DisplayFor(model => model.MutantStatus)</textarea>
+                    @*<input asp-for="Transactionid" value="@Html.DisplayFor(model => model.Transactionid)" type="hidden" />*@
+                </div>
+
+                <div class="col-md-3">
+                    <textarea id="successstatus" rows="1" style="display:none;">@Html.DisplayFor(model => model.successstatus)</textarea>
+                    @*<input asp-for="Transactionid" value="@Html.DisplayFor(model => model.Transactionid)" type="hidden" />*@
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--TONE MODAL-->
+<div class="modal fade" id="exampleModal">
+    <!--tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"-->
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel" style="height: 0px;">Summary</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: .9em">
+                </p>
+                <h5>
+                    Invoice number:
+                    @Html.DisplayFor(model => model.Transactionid)
+                </h5>
+                <table id="paysummarytable" class="table" cellpadding="0" cellspacing="20">
+                    <tr>
+                        <th>TASK DESCRIPTION</th>
+                        <th>AMOUNT PER LGA</th>
+                        <th>NO OF LGAS</th>
+                        <th>TOTAL</th>
+                    </tr>
+                    <tr>
+                        <td>APPLICATION FEE</td>
+                        <td>5000.00 NGN</td>
+                        <td> @Html.DisplayFor(model => model.noofselectedlgas)</td>
+                        <td>@ViewData["totalamount"]L</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total</td>
+                        <td>@ViewData["totalamount"]</td>
+
+                    </tr>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="runn" type="button" class="btn btn-secondary">Make Payment</button>
+            </div>
+            @*<button id="runn" type="submit" asp-page-handler="saveagent" class="btn btn-primary px-4 float-right">proceed</button>*@
+        </div>
+    </div>
+</div>
+
+<!--TONE MODAL END-->
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js">
+            $(document).ready(function () {
+                $(window).load(function () {
+                    $('#modd').trigger('click');
+                });
+            });
+</script>
+@*$('#modd').click(function(){
+        $('#exampleModal').modal('show')
+    });*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/table-to-json@0.13.0/lib/jquery.tabletojson.min.js" integrity="sha256-AqDz23QC5g2yyhRaZcEGhMMZwQnp8fC6sCZpf+e7pnw=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+            //first state
+            $(document).ready(function () {
+
+                $(window).load(function () {
+                    if ($("#Transactionid").val() != '') {
+                        $('#modd').trigger('click');
+                    }
+
+                    if ($("#MutantStatus").val() != '') {
+                        $('.alert').show();
+                        //alert($("#MutantStatus").val());
+                    }
+                    else {
+                        // alert("empty");
+                    }
+
+                });
+
+
+            });
+
+            $("#Officestateid").change(function () {
+                var selectedstate = $("#Officestateid").val();
+                //alert("Value selected is:::" + selectedRegion);
+                $.ajax({
+                    type: "GET",
+                    url: "/Identity/Account/Register?handler=FetchLGAs&id=" + selectedstate, //https://localhost:5001/Identity/Account/Register?handler=FetchLGAs&id=3
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        //alert("This is the result" + data);
+                        if (data.lganame != "2") {
+                            $("#errorState").html("");
+                            $("#Officelgaid").empty();
+                            $("#Officelgaid").append("<option value=''>Select LGA</option>");
+
+                            for (var i = 0; i < data.length; i++)
+                            // $.each(data, function (resp)
+                            {
+                                //alert(data[i].StateName);
+                                $("#Officelgaid").append("<option value='" + data[i].id + "'>" + data[i].lganame + "</option>");
+
+                            }
+
+                        } else {
+                            $("#errorState").html("No lga is available for the selected state!");
+
+                        }
+
+                    }
+
+                });
+            });
+
+            //second state
+            $(document).ready(function () {
+                $("#Desstateid").change(function () {
+                    var selectedstate = $("#Desstateid").val();
+                    //alert("Value selected is:::" + selectedRegion);
+                    $.ajax({
+                        type: "GET",
+                        url: "/Identity/Account/Register?handler=FetchLGAs&id=" + selectedstate, //https://localhost:5001/Identity/Account/Register?handler=FetchLGAs&id=3
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            //alert("This is the result" + data);
+                            if (data.lganame != "2") {
+                                $("#errorState").html("");
+                                $("#Deslgaid").empty();
+                                $("#Deslgaid").append("<option value=''>Select LGA</option>");
+
+                                for (var i = 0; i < data.length; i++)
+                                // $.each(data, function (resp)
+                                {
+                                    //alert(data[i].StateName);
+                                    $("#Deslgaid").append("<option value='" + data[i].id + "'>" + data[i].lganame + "</option>");
+
+                                }
+
+                            } else {
+                                $("#errorState").html("No lga is available for the selected state!");
+
+                            }
+
+                        }
+
+                    });
+                });
+
+            });
+
+            //third state
+            $(document).ready(function () {
+                $("#Stateid").change(function () {
+                    var selectedstate = $("#Stateid").val();
+                    //alert("Value selected is:::" + selectedRegion);
+                    $.ajax({
+                        type: "GET",
+                        url: "/Identity/Account/Register?handler=FetchLGAs&id=" + selectedstate, //https://localhost:5001/Identity/Account/Register?handler=FetchLGAs&id=3
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+                            //alert("This is the result" + data);
+                            if (data.lganame != "2") {
+                                $("#errorState").html("");
+                                $("#Lgaid").empty();
+                                $("#Lgaid").append("<option value=''>Select LGA</option>");
+
+                                for (var i = 0; i < data.length; i++)
+                                // $.each(data, function (resp)
+                                {
+                                    //alert(data[i].StateName);
+                                    $("#Lgaid").append("<option value='" + data[i].id + "'>" + data[i].lganame + "</option>");
+
+                                }
+
+                            } else {
+                                $("#errorState").html("No lga is available for the selected state!");
+
+                            }
+
+                        }
+
+                    });
+                });
+
+            });
+
+
+            function productAddToTable() {
+
+                // First check if a <tbody> tag exists, add one if not
+                if ($("#tbllgas tbody").length == 0) {
+                    $("#tbllgas").append("<tbody></tbody>");
+                }
+
+                // Append product to the table
+                if ($("#tbllgas tr").length < 11) {
+
+                    if ($("#Deslgaid option:selected").text() == 'Select LGA') {
+                        alert('Please Select a Valid LGA');
+                    }
+                    else {
+                        $("#tbllgas tbody").append(
+                            "<tr valign='middle'>" +
+                            "<td valign='middle'>" + $("#Deslgaid option:selected").text() + "</td>" +
+                            "<td>" +
+                            "<button type='button' " +
+                            "onclick='productDelete(this);' " +
+                            "class='btn btn-sm btn-danger 1px'>" +
+                            "<span>Delete</span>" +
+                            "</button>" +
+                            "</td>" +
+                            "</tr>"
+                        );
+                    }
+                }
+            }
+       
+    
+
+
+        function propAddToTable() {
+            // First check if a <tbody> tag exists, add one if not
+            if ($("#tblprops tbody").length == 0) {
+                $("#tblprops").append("<tbody></tbody>");
+            }
+            if ($("#Stateid option:selected").text() == 'Select State' || $("#Lgaid option:selected").text() == 'Select LGA' || $("#PropFullName").val() == '' || $("#PropAddress").val() == '' || $("#genDer option:selected").text() == 'Select Gender'  || $("#PropPhone").val() == '') {
+                alert('Please Complete Shareholder Details');
+            }
+            else {
+            // Append product to the table
+
+                $("#tblprops tbody").append(
+                    "<tr valign='middle'>" +
+                    "<td valign='middle'>" + $("#PropFullName").val() + "</td>" +
+                    "<td valign='middle'>" + $("#genDer option:selected").text() + "</td>" +
+                    "<td valign='middle'>" + $("#PropAddress").val() + "</td>" +
+                    "<td valign='middle'>" + $("#PropPhone").val() + "</td>" +
+                    "<td valign='middle'>" + $("#Stateid option:selected").text() + "</td>" +
+                    "<td valign='middle'>" + $("#Lgaid option:selected").text() + "</td>" +
+                    "<td>" +
+                    "<button type='button' " +
+                    "onclick='productDelete(this);' " +
+                    "class='btn btn-sm btn-danger 1px'>" +
+                    "<span>Delete</span>" +
+                    "</button>" +
+                    "</td>" +
+                    "</tr>"
+                );
+            }
+        }
+
+        function productDelete(ctl) {
+            $(ctl).parents("tr").remove();
+        }
+
+
+
+        $('#run').hover(function (event) {
+            if ($("#tbllgas tr").length == 1 || $("#tblprops tr").length == 1) {
+                event.preventDefault();
+                alert('Please ensure you have added at least one proprietor and one LGA using the add buttons');
+                event.stopPropagation();
+            }
+            else {
+                var table = $("#tbllgas").tableToJSON({ ignoreColumns: [1] });
+                $("#JSONLGAs").val(JSON.stringify(table));
+                //
+                var totalRowCount = $("#tbllgas tr").length;
+                var rowCount = $("#tbllgas td").closest("tr").length;
+                var message = "Total Row Count: " + totalRowCount;
+                $("#noofselectedlgas").val(rowCount.toString());
+                //
+                var proprietortable = $("#tblprops").tableToJSON({ ignoreColumns: [6] });
+                $("#JSONproprietors").val(JSON.stringify(proprietortable));
+                //
+                var totalRowCount = $("#tblprops tr").length;
+                var rowCount = $("#tblprops td").closest("tr").length;
+                var message = "Total Row Count: " + totalRowCount;
+                $("#noofselectedprops").val(rowCount.toString());
+            }
+        });
+
+
+        ////FINALLY SAVE THE AGENT
+        //$("#runn").click(function () {
+        //    var jsonModel = $("#desj").val();
+        //    //alert("Value selected is:::" + selectedRegion);
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "/Identity/Account/Register?handler=Save",
+        //        contentType: "application/json; charset=utf-8",
+        //        data: jsonModel,
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function(response) {
+        //            alert(response);
+        //            if (response != null && response.d != null) {
+        //                alert(response.d);
+        //            }
+        //        },
+        //        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        //            alert('error');
+        //        }
+
+        //    });
+        //});
+
+        $("#runn").click(function () {
+            $('#runnn').trigger('click');
+        });
+         //$("#runn").click(function () {
+         //       var retrievedjson = $("#desj").val();
+         //       //alert("Value selected is:::" + selectedRegion);
+         //       $.ajax({
+         //           type: "GET",
+         //           url: "/Identity/Account/Register?handler=Fetchpay&json=" + retrievedjson,
+         //           contentType: "application/json; charset=utf-8",
+         //           dataType: "json",
+         //           success: function (data) {
+         //               if (data.pitch != null) {
+         //                   alert(data.pitch);
+         //               }
+         //           },
+         //            error: function(XMLHttpRequest, textStatus, errorThrown) {
+         //           alert('error');
+         //            }
+
+         //       });
+         //});
+   //document.getElementById("JSONLGAs").text = JSON.stringify(table); //$('#GridListDisplay').val();
+    //alert(JSON.stringify(table));  $("#JSONLGAs").val() = JSON.stringify(table);
+    </script>
+
+}
